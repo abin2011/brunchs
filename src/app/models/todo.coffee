@@ -1,0 +1,1 @@
+class exports.Todo extends Backbone.Model
