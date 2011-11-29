@@ -5,4 +5,3 @@ class exports.MainRouter extends Backbone.Router
   home: ->
     $('body').html app.views.home.render().el
     $('#todo-app').append app.views.newTodoView.render().el
-	$('#todo-app').append app.views.todoListView.render().el

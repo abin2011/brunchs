@@ -11062,7 +11062,7 @@ window.jQuery = window.$ = jQuery;
 
 }).call(this);
 }, "main": function(exports, require, module) {(function() {
-  var HomeView, MainRouter, NewTodoView, TodoList, TodoListView;
+  var HomeView, MainRouter, NewTodoView, TodoList;
 
   window.app = {};
 
@@ -11082,17 +11082,12 @@ window.jQuery = window.$ = jQuery;
 
   NewTodoView = require('views/new_todo_view').NewTodoView;
 
-  TodoListView = require('views/todo_list_view').TodoListView;
-
   $(document).ready(function() {
     app.initialize = function() {
       app.routers.main = new MainRouter();
       app.collections.todoList = new TodoList();
       app.views.home = new HomeView();
       app.views.newTodoView = new NewTodoView();
-      app.views.todoListView = new TodoListView({
-        collection: app.collections.todoList
-      });
       if (Backbone.history.getFragment() === '') {
         return app.routers.main.navigate('home', true);
       }
@@ -11141,8 +11136,6 @@ window.jQuery = window.$ = jQuery;
     return MainRouter;
 
   })();
-
-  $('#todo-app').append(app.views.todoListView.render().el);
 
 }).call(this);
 }, "templates/home": function(exports, require, module) {module.exports = function(__obj) {
